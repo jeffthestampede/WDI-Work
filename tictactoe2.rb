@@ -20,18 +20,8 @@ class Display
     puts 
   end
 
-  # def valid_move?(move)
-  #   raise Invalid_Entry unless move > 0 && move < 10
-  # end
-
-  # #move should be an integer 0 < i < 10
-  # def open_move?(move)
-  #   raise Space_Taken unless @board[move].to_i > 0
-  # end
-
-  # move is an integer 1-9 and player is "X" or "Y"
   def update_board(move, mark)
-    @number_of_moves += 1
+    @number_of_moves = @number_of_moves + 1
     @board[move] = mark
   end
 
@@ -74,28 +64,6 @@ class Player
   end
 end
 
-
-
-
-# class Game_Exception < Exception
-#   def message
-#     "GENERAL GAME EXCEPTION"
-#   end
-# end
-
-# class Invalid_Entry < Game_Exception
-#   def message 
-#     "\nNOT A VALID POSITION."
-#   end
-# end
-
-# class Space_Taken < Game_Exception
-#   def message 
-#     "\nTHIS SPACE IS ALREADY TAKEN."
-#   end
-# end
-
-#code starts executing here
 d = Display.new
 p1 = Player.new
 p2 = Player.new
@@ -104,55 +72,34 @@ p2.marker = "O"
 
 turn = true
 continue_game = true
-# num_moves = 0
 
 while continue_game
   begin
-
-    # move = nil
-
     if turn
       player = p1
     else
       player = p2
     end
-
     d.display_board
     puts "pick a spot!"
       begin  
         move = gets.chomp.to_i
         puts d.board[move.to_i]
-        invalid_move = (move < 1 && move > 9)||(d.board[move.to_i] == "X")||(d.board[move.to_i] == "Y")
+        invalid_move = ((move.to_i < 0 && move.to_i > 9)||(d.board[move.to_i] == "X")||(d.board[move.to_i] == "Y"))
           if invalid_move == true
             puts "Invaild Move. Pick Another Move!"
           else
-
-        # unless (move > 0 && move < 10)||(player.move.to_i > 0)
-        #   puts "invalid move"
-        # end
-
-        # d.valid_move?(move)
-        # d.open_move?(move)
-
             d.update_board(move, player.marker)
             player.update_moves(move)
             turn = !turn
-
               if player.check_win
                 continue_game = false
-                puts ""
-                puts "Winner!"
+                puts "/n" + "Winner!"
                 d.display_board
                 break
               end 
           end
       end until invalid_move == false
   end  
-   
-
-  # rescue Game_Exception => ex
-  #   puts ex.message 
-  #   retry
-  # end
 end
-puts "game over!\n"
+  puts "game over!\n"
