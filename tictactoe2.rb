@@ -20,14 +20,14 @@ class Display
     puts 
   end
 
-  def valid_move?(move)
-    raise Invalid_Entry unless move > 0 && move < 10
-  end
+  # def valid_move?(move)
+  #   raise Invalid_Entry unless move > 0 && move < 10
+  # end
 
-  #move should be an integer 0 < i < 10
-  def open_move?(move)
-    raise Space_Taken unless @board[move].to_i > 0
-  end
+  # #move should be an integer 0 < i < 10
+  # def open_move?(move)
+  #   raise Space_Taken unless @board[move].to_i > 0
+  # end
 
   # move is an integer 1-9 and player is "X" or "Y"
   def update_board(move, mark)
@@ -38,7 +38,7 @@ class Display
   def check_tie
     if @number_of_moves == 9
       display_board
-      puts "THIS GAME ENDED IN A TIE"
+      puts "tie game!"
       return false
     else
       return true
@@ -77,23 +77,23 @@ end
 
 
 
-class Game_Exception < Exception
-  def message
-    "GENERAL GAME EXCEPTION"
-  end
-end
+# class Game_Exception < Exception
+#   def message
+#     "GENERAL GAME EXCEPTION"
+#   end
+# end
 
-class Invalid_Entry < Game_Exception
-  def message 
-    "\nNOT A VALID POSITION."
-  end
-end
+# class Invalid_Entry < Game_Exception
+#   def message 
+#     "\nNOT A VALID POSITION."
+#   end
+# end
 
-class Space_Taken < Game_Exception
-  def message 
-    "\nTHIS SPACE IS ALREADY TAKEN."
-  end
-end
+# class Space_Taken < Game_Exception
+#   def message 
+#     "\nTHIS SPACE IS ALREADY TAKEN."
+#   end
+# end
 
 #code starts executing here
 b = Display.new
@@ -125,8 +125,8 @@ while continue
     #   puts "invalid move"
     # end
 
-    b.valid_move?(move)
-    b.open_move?(move)
+    # b.valid_move?(move)
+    # b.open_move?(move)
 
     b.update_board(move, player.marker)
     player.update_moves(move)
@@ -139,12 +139,12 @@ while continue
       b.display_board
       break
     end     
-    
+  end  
    
 
-  rescue Game_Exception => ex
-    puts ex.message 
-    retry
-  end
+  # rescue Game_Exception => ex
+  #   puts ex.message 
+  #   retry
+  # end
 end
 puts "**** GAME OVER ****\n"
