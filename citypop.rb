@@ -21,7 +21,10 @@ citypop5 = gets.chomp.to_i
 
 city_pop_hash = {citypop1 => city1, citypop2 => city2, citypop3 => city3, citypop4 => city4, citypop5 => city5}
 
+
 x = city_pop_hash.sort_by {|a,b| a} 
+puts x
+
 puts "The city with the highest population is: #{x[4][1]}"
 
 

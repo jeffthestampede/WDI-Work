@@ -7,7 +7,6 @@ array = []
 puts array
 puts
 puts
-puts
 
 j = i = 2
 loop do
