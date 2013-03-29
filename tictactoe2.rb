@@ -38,7 +38,7 @@ class Display
   def check_tie
     if @number_of_moves == 9
       display_board
-      puts "tie game!"
+      puts "it's a tie game!"
       return false
     else
       return true
@@ -96,20 +96,20 @@ end
 # end
 
 #code starts executing here
-b = Display.new
+d = Display.new
 p1 = Player.new
-p1.marker = "X"
 p2 = Player.new
+p1.marker = "X"
 p2.marker = "O"
 
 turn = true
-continue = true
-num_moves = 0
+continue_game = true
+# num_moves = 0
 
-while continue
+while continue_game
   begin
 
-    move = nil
+    # move = nil
 
     if turn
       player = p1
@@ -117,28 +117,36 @@ while continue
       player = p2
     end
 
-    b.display_board
+    d.display_board
     puts "pick a spot!"
-    move = gets.chomp.to_i
+      begin  
+        move = gets.chomp.to_i
+        puts d.board[move.to_i]
+        invalid_move = (move < 1 && move > 9)||(d.board[move.to_i] == "X")||(d.board[move.to_i] == "Y")
+          if invalid_move == true
+            puts "Invaild Move. Pick Another Move!"
+          else
 
-    # unless (move > 0 && move < 10)||(player.move.to_i > 0)
-    #   puts "invalid move"
-    # end
+        # unless (move > 0 && move < 10)||(player.move.to_i > 0)
+        #   puts "invalid move"
+        # end
 
-    # b.valid_move?(move)
-    # b.open_move?(move)
+        # d.valid_move?(move)
+        # d.open_move?(move)
 
-    b.update_board(move, player.marker)
-    player.update_moves(move)
-    turn = !turn
+            d.update_board(move, player.marker)
+            player.update_moves(move)
+            turn = !turn
 
-    if player.check_win
-      continue = false
-      puts ""
-      puts "Winner!"
-      b.display_board
-      break
-    end     
+              if player.check_win
+                continue_game = false
+                puts ""
+                puts "Winner!"
+                d.display_board
+                break
+              end 
+          end
+      end until invalid_move == false
   end  
    
 
@@ -147,4 +155,4 @@ while continue
   #   retry
   # end
 end
-puts "**** GAME OVER ****\n"
+puts "game over!\n"
