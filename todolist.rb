@@ -3,6 +3,14 @@
 #mark items as completed
 #list out completed and uncompleted
 
+#Verbs
+# add
+# finish
+# list
+# Nouns
+# tasklist
+# Menu
+require 'pry'
 class Menu
 	
 	# def initialize
@@ -25,42 +33,31 @@ class Menu
 end
 
 
-class TodoList
-  attr_accessor :task_name, task_complete
+class Task_List
+  attr_accessor :task_name, :finish_task, :add_task
 
   def task_name
-  	@task_name = gets.chomp
-
-  def task_complete
-  	@task_complete = gets.chomp
-  end
-  def 
-      # read the file, create a list, create items, add them
+  	puts "Task name?"
+    @task_name = gets.chomp
   end
 
-  def initialize
+  def finish_task
+    puts "Finish Task (y/n)"
+  	@task_complete = gets.chomp.downcase
   end
-
-  def add(item)
-  end
-
-  def write(file)
-    # write the file, only write the undone items
-  end
-
-  def [](id)
-    @list[id]
+  
+  def add_task
+    @add_task = gets.comp.downcase
   end
 end
 
-class TodoItem
-# provide reader and setter for name and state
 
-  def initialize(name)
-    # store name
-    # set state to undone
-  end
-end
+t = Task_List.new
+t.task_name
+t.finish_task
+binding.pry
+t.add_task
+
 
 # ---
 # the library will be used like this:
