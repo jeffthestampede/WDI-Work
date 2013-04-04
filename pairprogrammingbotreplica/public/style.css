@@ -1,7 +1,31 @@
-.yes {
+.span12 {
+  text-align: center;
+  margin-top: 200px;
+  line-height: 1;
+  font-family: 'Nunito', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.question {
   font-size: 40px;
+}
+.yes {
+  font-size: 25px;
+  margin-right: 55px;
 }
 
 .no {
-  font-size: 40px;
+  font-size: 25px;
+  margin-left: 55px;
+}
+
+.done {
+  font-size: 25px;
+}
+
+.continue {
+  font-size: 25px;
 }
