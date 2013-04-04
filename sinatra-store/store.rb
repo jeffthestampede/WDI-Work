@@ -1,5 +1,4 @@
 # gem install --version 1.3.0 sinatra
-require 'pry'
 gem 'sinatra', '1.3.0'
 require 'sinatra'
 require 'sinatra/reloader'
@@ -25,10 +24,35 @@ end
 get '/products' do
   db = SQLite3::Database.new "store.sqlite3"
   db.results_as_hash = true
-  @rs = db.prepare('SELECT name, on_sale FROM products;').execute
-  # @sale = db.prepare('SELECT name FROM products WHERE on_sale="t";').execute
+  @rs = db.prepare("SELECT * FROM products;").execute
   erb :show_products
 end
+
+get '/products/:id' do
+  id = params[:id]
+  db = SQLite3::Database.new "store.sqlite3"
+  db.results_as_hash = true
+  @rs = db.prepare("SELECT * FROM products WHERE id = #{id};").execute
+  @id = id
+  erb :productsdetails
+end
+
+get '/new-product' do
+  erb :new_product
+end
+
+post '/new-product' do
+  name = params[:product_name]
+  price = params[:product_price]
+  db = SQLite3::Database.new "store.sqlite3"
+  db.results_as_hash = true
+  @rs = db.prepare("INSERT INTO products ('name', 'price') VALUES ('#{name}', '#{price}');").execute
+  @name = name
+  @price = price
+  erb :product_created
+end
+
+
 
  
  

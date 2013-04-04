@@ -5,12 +5,16 @@ ul {
 
 .users {
   margin-top: 80px;
-  margin-right: 25px;
 }
 
 .products {
   margin-top: 80px;
   margin-left: 25px;
+  margin-right: 25px;
+}
+
+.new-product {
+  margin-top: 80px;
 }
 
 tbody:nth-child(even) {

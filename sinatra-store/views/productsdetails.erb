@@ -1,15 +1,16 @@
-
 <table class="table">
- 
   <tr>
-    <th>Product Name</th>
+    <th>ID</th>
+    <th>Name</th>
     <th>Price</th>
     <th>Sale Item</th>
   </tr>
+  
   <% @rs.each do |row| %>
   <tbody>
   <tr>
-    <td><a href="/products/<%= row['id'] %>"><%= row['name'] %></td>
+    <td><%= row['id'] %></td>
+    <td><%= row['name'] %></td>
     <td>$<%= row['price'] %></td>
     <td>
         <% if row["on_sale"]== 't'%>
@@ -21,6 +22,6 @@
   </tbody>
 </table>
 
-
-
+<a class = "back btn" href="/products/:id/show_form">Update Item</a></li>
+<p>
 <a class = "back btn" href="/">Back</a></li>
