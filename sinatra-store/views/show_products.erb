@@ -1,0 +1,21 @@
+
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Sale Item</th>
+  </tr>
+  <% @rs.each do |row| %>
+  <tr>
+    <td><%= row['name'] %></td>
+    <td>
+        <% if row["on_sale"]== 't'%>
+          <img src="http://matchconsultingblog.files.wordpress.com/2012/06/sale-tag.jpg">
+        <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+
+
+<a class = "back" href="/">Back</a></li>

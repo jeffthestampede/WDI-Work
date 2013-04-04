@@ -19,9 +19,10 @@ class Menu
 	# end
 
 	def display_menu
-		puts "TO-DO List"
-		puts 
-		
+		puts "TO-DO List Menu"
+		puts "Press A : Add a new task"
+		puts "Press F : Finish a task"
+		puts "Press D : Display List"		
 	end
 
 
@@ -42,17 +43,20 @@ class Task_List
   end
 
   def finish_task
-    puts "Finish Task (y/n)"
+    puts "Finish Task?"
   	@task_complete = gets.chomp.downcase
   end
   
   def add_task
+  	puts "Add Task?"
     @add_task = gets.comp.downcase
   end
 end
 
 
 t = Task_List.new
+m=Menu.new
+m.display_menu
 t.task_name
 t.finish_task
 binding.pry

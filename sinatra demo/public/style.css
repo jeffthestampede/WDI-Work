@@ -1,0 +1,36 @@
+.result {
+  font-size: 200px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.operator {
+  font-size: 40px;
+  text-align: center;
+  line-height: 1;
+  text-align: center;
+}
+
+.operand {
+  font-size: 60px;
+  text-align: center;
+  line-height: 1;
+}
+
+.equal {
+  font-size: 80px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/*.span4{
+  margin-top: 50px;
+}
+*/
+.header {
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+}
