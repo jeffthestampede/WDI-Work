@@ -17,14 +17,14 @@ require 'sqlite3'
 get '/users' do
   db = SQLite3::Database.new "store.sqlite3"
   db.results_as_hash = true
-  @rs = db.prepare('SELECT * FROM users;').execute
+  @rs = db.execute('SELECT * FROM users;')
   erb :show_users
 end
 
 get '/products' do
   db = SQLite3::Database.new "store.sqlite3"
   db.results_as_hash = true
-  @rs = db.prepare("SELECT * FROM products;").execute
+  @rs = db.execute("SELECT * FROM products;")
   erb :show_products
 end
 
@@ -32,29 +32,62 @@ get '/products/:id' do
   id = params[:id]
   db = SQLite3::Database.new "store.sqlite3"
   db.results_as_hash = true
-  @rs = db.prepare("SELECT * FROM products WHERE id = #{id};").execute
+  @rs = db.execute("SELECT * FROM products WHERE id = #{id};")
   @id = id
+  # @row = db.get_first_row(sql)
+  # @row = rs.first
   erb :productsdetails
 end
 
-get '/new-product' do
+get '/product/new' do
   erb :new_product
 end
 
-post '/new-product' do
+post '/product/new' do
   name = params[:product_name]
   price = params[:product_price]
   db = SQLite3::Database.new "store.sqlite3"
   db.results_as_hash = true
-  @rs = db.prepare("INSERT INTO products ('name', 'price') VALUES ('#{name}', '#{price}');").execute
+  @rs = db.execute("INSERT INTO products ('name', 'price') VALUES ('#{name}', '#{price}');")
   @name = name
   @price = price
-  erb :product_created
+  erb :success
 end
 
 
 
- 
+get '/products/:id/delete' do
+  id = params[:id]
+  @id = id
+  erb :delete_product
+end
+
+post '/products/:id/delete' do
+  id = params[:id]
+  @id = id
+  db = SQLite3::Database.new "store.sqlite3"
+  db.results_as_hash = true
+  @rs = db.execute("DELETE FROM products WHERE id = #{id};")
+end
+
+get '/products/:id/show_form' do
+  id = params[:id]
+  @id = id
+  erb :update_product
+end
+
+post '/products/:id/show_form' do
+  id = params[:id]
+  name = params[:product_name]
+  price = params[:product_price]
+  db = SQLite3::Database.new "store.sqlite3"
+  db.results_as_hash = true
+  @rs = db.execute("UPDATE products SET name='#{name}', price=#{price} WHERE id = #{id};")
+  @id = id
+  @name = name
+  @price = price
+  erb :success
+end
  
 get '/' do
   erb :home

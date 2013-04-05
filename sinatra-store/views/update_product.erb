@@ -1,10 +1,10 @@
 <h1>Update Product</h1>
 
-<form action="/update-product" method="post">
+<form action="/products/<%= @id %>/show_form" method="post">
   <label for="product_name">Product Name</label>
   <input type="text" name="product_name">
   <label for="product_price">Product Price</label>
   <input type="text" name="product_price">
   <p>
-  <button class = "back btn">Save it!</button>
+  <button class = "back btn">Update it!</button>
 </form>

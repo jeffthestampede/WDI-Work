@@ -18,10 +18,11 @@
         <% end %>
     </td>
   </tr>
-  <% end %>
   </tbody>
 </table>
 
-<a class = "back btn" href="/products/:id/show_form">Update Item</a></li>
-<p>
-<a class = "back btn" href="/">Back</a></li>
+<li><a class = "back btn" href="/products/<%= @id %>/show_form">Update Item</a></li>
+<li><a class = "back btn" href="/products/<%= @id %>/delete">Delete Item</a></li>
+<li><a class = "back btn" href="/">Back</a></li>
+
+<% end %>
