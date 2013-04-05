@@ -1,6 +1,7 @@
 ul {
   list-style: none;
   text-align: center;
+  margin: auto;
 }
 
 .users {
@@ -19,4 +20,12 @@ ul {
 
 tbody:nth-child(even) {
   background-color: #C0C0C0;
+}
+
+
+body {
+  background-image: url("/panda1.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  height: 100%;
 }
