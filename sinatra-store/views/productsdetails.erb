@@ -1,6 +1,6 @@
 <div class="span12">
   <ul>
-    <table class="table">
+    <table class="table table-hover">
       <tr>
         <th>ID</th>
         <th>Name</th>
@@ -15,17 +15,17 @@
           <td>$<%= row['price'] %></td>
           <td>
             <% if row["on_sale"]== 't'%>
-            <img src="http://matchconsultingblog.files.wordpress.com/2012/06/sale-tag.jpg" width="50" height="50">
+            <img src="http://www.techscreens.com/wp-content/themes/blognews/images/sale.png">
             <% end %>
           </td>
       </tr>
       </tbody>
     </table>
-      <li><a class = "back btn btn-primary" href="/products/<%= @id %>/show_form">Update Item</a></li>
+      <li><a class = "back btn" href="/products/<%= @id %>/show_form">Update Item</a></li>
       <p></p>
       <li><a class = "back btn btn-danger" href="/products/<%= @id %>/delete">Delete Item</a></li>
       <p></p>
-      <li><a class = "back btn" href="/">Back</a></li>
+      <li><a class = "back btn" href="/">Home</a></li>
       <% end %>
   </ul>
 </div>

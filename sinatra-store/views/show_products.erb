@@ -1,5 +1,5 @@
 <div class="span12">
-  <table class="table">
+  <table class="table table-hover">
   <tr>
     <th>Product Name</th>
     <th>Price</th>
@@ -12,12 +12,13 @@
     <td>$<%= row['price'] %></td>
     <td>
         <% if row["on_sale"]== 't'%>
-          <img src="http://matchconsultingblog.files.wordpress.com/2012/06/sale-tag.jpg" width="50" height="50">
+          <img src="http://www.techscreens.com/wp-content/themes/blognews/images/sale.png">
         <% end %>
     </td>
   </tr>
   <% end %>
   </tbody>
   </table>
-  <a class = "back btn" href="/">Back</a></li>
+  <a class = "back btn" href="/">Home</a></li>
+  <a class = "newproduct btn bt-info" href="/product/new">Add New Product</a></li>
 </div>
