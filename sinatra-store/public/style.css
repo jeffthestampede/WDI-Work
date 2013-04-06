@@ -6,20 +6,6 @@
   margin-left: 75px;
 }
 
-/*.users {
-  margin-top: 80px;
-}
-
-.products {
-  margin-top: 80px;
-  margin-left: 25px;
-  margin-right: 25px;
-}
-
-.newproduct {
-  margin-top: 80px;
-}*/
-
 li {
   list-style: none;
 }
@@ -60,6 +46,11 @@ form {
   font-family: 'Nunito', sans-serif;
 }
 
+.twitter {
+  color: white;
+  font-family: 'Nunito', sans-serif;
+}
+
 a {
 color: white;
 text-decoration: none;
@@ -72,6 +63,8 @@ text-decoration: none;
 }
 
 .store_name {
+  font-size: 80px;
+  line-height: 90%;
   margin-top: 40px;
   text-align: center;
   color: white;

@@ -4,16 +4,22 @@
     <th>Product Name</th>
     <th>Price</th>
     <th>Sale Item</th>
+    <th>Twitter Search</th>
   </tr>
   <% @rs.each do |row| %>
   <tbody>
   <tr>
-    <td><a href="/products/<%= row['id'] %>"><%= row['name'] %></td>
+    <td><a href="/products/<%= row['id'] %>/<%= URI.escape(row['name']) %>"><%= row['name'] %></td>
     <td>$<%= row['price'] %></td>
     <td>
         <% if row["on_sale"]== 't'%>
           <img src="http://www.techscreens.com/wp-content/themes/blognews/images/sale.png">
         <% end %>
+    </td>
+    <td>
+      <a href="/products/search?q=<%= URI.escape(row['name']) %>">
+        <img src="https://lh6.googleusercontent.com/-C_ioXiToNHo/UVuYpa3WD8I/AAAAAAAAAMM/t9hV9H4tCuU/s32/social-twitter.png">
+      </a>
     </td>
   </tr>
   <% end %>
