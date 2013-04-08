@@ -1,4 +1,7 @@
 require 'pry'
+require 'json'
+require 'uri'
+require 'net/http'
 
 class Rubymethods
   def convert_to_original
@@ -33,9 +36,10 @@ class Rubymethods
   end
 
   def convert_to_euros
-    n = gets.chomp.to_f
-    rate =  0.77
-    r = n*rate
+    @n = gets.chomp.to_f
+    file = Net::HTTP.get(URI.parse("http://rate-exchange.appspot.com/currency?from=USD&to=EUR&q=#{@n}"))
+    results = JSON.parse(file)
+    r = results["v"]
     r2 = sprintf "%.2f", r.round(2)
     print r2.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
     puts " EUR"
@@ -58,5 +62,11 @@ end
 
 
 n = Rubymethods.new
+n.convert_to_original
+n.convert_to_phone_number
+n.convert_to_currency
 n.convert_to_euros
+n.convert_to_phrase
+
+
 
