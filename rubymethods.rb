@@ -62,11 +62,11 @@ end
 
 
 n = Rubymethods.new
-n.convert_to_original
-n.convert_to_phone_number
+# n.convert_to_original
+# n.convert_to_phone_number
 n.convert_to_currency
-n.convert_to_euros
-n.convert_to_phrase
+# n.convert_to_euros
+# n.convert_to_phrase
 
 
 
