@@ -1,0 +1,58 @@
+<div class="detail">
+<h2>
+  <%= @detail["Title"] %>
+  (<%= @detail["Year"] %>)
+</h2>
+  <img src="<%= @detail["Poster"] %>">
+<p>
+  <%= @detail["Plot"] %>
+</p>
+<dl>
+  <dt>
+    Rating
+  </dt>
+  <dd>
+    <%= @detail["Rated"] %>
+  </dd>
+  <dt>
+    Runtime
+  </dt>
+  <dd>
+    <%= @detail["Runtime"] %>
+  </dd>
+  <dt>
+    Genre
+  </dt>
+  <dd>
+    <%= @detail["Genre"] %>
+  </dd>
+  <dt>
+    IMDB Rating
+  </dt>
+  <dd>
+    <%= @detail["imdbRating"] %>
+  </dd>
+  <dt>
+    Actors
+  </dt>
+  <dd>
+    <ul>
+      <%= @detail["Actors"] %>
+    </ul>
+  </dd>
+  <dt>
+    Director
+  </dt>
+  <dd>
+    <ul>
+      <%= @detail["Director"] %>  
+    </ul>
+  </dd>
+</dl>
+
+<a href="/search?q=<%= URI.escape(@query) %>">
+  Back to search results for <q><%= @query %></q>
+</a>
+</div>
+
+

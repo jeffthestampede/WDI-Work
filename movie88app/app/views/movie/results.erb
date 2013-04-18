@@ -1,0 +1,16 @@
+<% if @results.empty? %>
+  No search results found
+<% else %>
+  <ol>
+  <% @results.each do |result| %>
+    <li>
+      <a class="listresults" href="/movies?id=<%= result["imdbID"] %>&amp;q=<%= URI.escape(@query) %>"><%= result["Title"] %></a>
+      (<%= result["Year"] %>)
+    </li>
+  <% end %>
+</ol>
+  <% end %>
+
+
+
+

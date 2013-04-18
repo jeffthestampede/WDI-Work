@@ -1,0 +1,44 @@
+
+<h1> Add a student to <%= @course_name %> </h1>
+
+<%= form_for(@student) do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+
+    <% if !params[:course_id].nil?  # or use .present? %>
+
+      <input type="hidden" name='student[course_id]' value='<%= params[:course_id] %>'/>
+
+    <% else %>
+
+      <%= f.label :course_id %><br />
+      <select name='student[course_id]'>
+        <% @courses.each do |course| %>
+          <option value='<%= course.id %>'>
+            <%= course.name %>
+          </option>
+        <% end %>
+      </select>
+
+    <% end %>
+
+   </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

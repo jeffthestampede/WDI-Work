@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie88</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Unlock' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <h1><%= render "search_form" %></h1>
+<%= yield %>
+</body>
+</html>

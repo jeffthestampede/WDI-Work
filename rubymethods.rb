@@ -1,6 +1,7 @@
 require 'pry'
 require 'json'
 require 'uri'
+require 'open-uri'
 require 'net/http'
 
 class Rubymethods
@@ -25,7 +26,7 @@ class Rubymethods
 
   def convert_to_phone_number
     n = gets.chomp
-    puts "+1 (#{n[0]}#{n[1]}#{n[2]}) #{n[3]}#{n[4]}#{n[5]}-#{n[6]}#{n[7]}#{n[8]}#{n[9]}"
+    puts "+1 (#{n[0..2]}) #{n[3..5]}-#{n[6..9]}"
   end
 
   def convert_to_currency
@@ -37,8 +38,10 @@ class Rubymethods
 
   def convert_to_euros
     @n = gets.chomp.to_f
-    file = Net::HTTP.get(URI.parse("http://rate-exchange.appspot.com/currency?from=USD&to=EUR&q=#{@n}"))
-    results = JSON.parse(file)
+    #file = Net::HTTP.get(URI.parse("http://rate-exchange.appspot.com/currency?from=USD&to=EUR&q=#{@n}"))
+    #results = JSON.parse(file)
+    file = open("http://rate-exchange.appspot.com/currency?from=USD&to=EUR&q=#{@n}")
+    results = JSON.load(file.read)
     r = results["v"]
     r2 = sprintf "%.2f", r.round(2)
     print r2.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
@@ -63,8 +66,8 @@ end
 
 n = Rubymethods.new
 # n.convert_to_original
-# n.convert_to_phone_number
-n.convert_to_currency
+n.convert_to_phone_number
+# n.convert_to_currency
 # n.convert_to_euros
 # n.convert_to_phrase
 

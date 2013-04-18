@@ -1,0 +1,26 @@
+<h3>Assets</h3>
+<%= image_tag("rails.png", :title=>"Alt text") %>
+
+<%= link_to("Home", "/") %>
+
+
+<h3>Numbers and Text</h3>
+<p>
+  Currency: <%= number_to_currency(@dollars) %>
+</p>
+
+<p>
+  Large number: <%= number_to_human(@large_number) %>
+</p>
+
+<p>
+  Phone number: <%= number_to_phone(@phone) %>
+</p>
+
+<p>
+  <%= pluralize(@person_count1, "person")%>
+</p>
+
+<p>
+  <%= pluralize(@person_count2, "person")%>
+</p>

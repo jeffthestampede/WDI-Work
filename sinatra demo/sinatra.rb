@@ -19,6 +19,12 @@ get '/:operator/:num1/:num2' do
   erb :calc
 end
 
+
+get /users\/(\d+)/ do |id|
+  puts "My ID is #{id}"
+end
+#using reg expression instead of string
+
 # get '/subtract/:num1/:num2' do
 #   @result = params[:num1].to_i - params[:num2].to_i
 #   @num1 = params[:num1]
