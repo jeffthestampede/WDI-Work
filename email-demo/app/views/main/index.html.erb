@@ -1,0 +1,14 @@
+
+<h1> Yo! \o/ 1337 Email Raps</h1>
+<form action="/send_email" method="post">
+  <div>
+    <input type="email" name="to" placeholder="Send to yo friend(email address)">
+  </div>
+  <div>
+  <input type="text" name="subject" placeholder="Yo Subject">
+  </div>
+  <div>
+  <%= text_area_tag(:body, "", :placeholder => "Enter yo message") %>
+  </div>
+  <%= submit_tag "Send yo email" %>
+</form>
