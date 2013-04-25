@@ -5,33 +5,9 @@
 
 var teams = ["Lakers", "Clippers", "Dodgers", "Chargers", "Golden State Warriors", "Lakers", "Clippers", "Dodgers", "Chargers", "Golden State Warriors", "Lakers", "Clippers", "Dodgers", "Chargers", "Golden State Warriors", "Lakers", "Clippers", "Dodgers", "Chargers", "Golden State Warriors", "Lakers", "Clippers", "Dodgers", "Chargers", "Golden State Warriors", "Lakers", "Clippers", "Dodgers", "Chargers", "Golden State Warriors"];
 
-
-
 function favoriteTeams(teams) {
   function ordinalize(number) {
     var x = number.toString();
-    // switch (x) {
-    // case "11":
-    //   return ("11th");
-    //   break;
-    // case "12":
-    //   return ("12th");
-    //   break;
-    // case "13":
-    //   return ("13th");
-    //   break;
-    // case (x[x.length - 1]) === "1"):
-    //   return (x + "st");
-    //   break;
-    // case (x[x.length - 1]) === "2"):
-    //   return (x + "nd");
-    //   break;
-    // case (x[x.length - 1]) === "3"):
-    //   return (x + "rd");
-    //   break;
-    // default:
-    //   return (x + "th");
-    // }
     if (x === "11") {
       return ("11th");
     } else if (x === "12") {
@@ -48,9 +24,9 @@ function favoriteTeams(teams) {
       return (x + "th");
     }
   }
-  var x;
-  for(x=0; x < teams.length; x += 1) {
-  console.log("My " + ordinalize(x+1) + " favorite sports team is the " + teams[x] + ".");
+  var i; //i is a counter
+  for(i=0; i < teams.length; i += 1) {
+  console.log("My " + ordinalize(i+1) + " favorite sports team is the " + teams[x] + ".");
   }
 }
 
