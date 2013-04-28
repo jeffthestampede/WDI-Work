@@ -9,11 +9,11 @@ function favoriteTeams(teams) {
   function ordinalize(number) {
     var x = number.toString();
     if (x === "11") {
-      return ("11th");
+      return (x + "th");
     } else if (x === "12") {
-      return ("12th");
+      return (x + "th");
     } else if (x === "13") {
-      return ("13th");
+      return (x + "th");
     } else if ((x[x.length - 1]) === "1") {
       return (x + "st");
     } else if ((x[x.length - 1]) === "2") {
