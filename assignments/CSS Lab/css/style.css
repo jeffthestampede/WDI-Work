@@ -1,0 +1,62 @@
+.sprite {
+  background-color: transparent;
+  background-image: url(../images/menu-sprite.png);
+  display: inline-block;
+}
+
+.home {
+  height: 60px;
+  width: 115px;
+}
+
+.about {
+  height: 60px;
+  width: 120px;
+  background-position: -115px 0;
+}
+
+.contact {
+  height: 60px;
+  width: 160px;
+  background-position: -235px 0;
+}
+
+.home:hover {
+  height: 65px;
+  width: 120px;
+  background-position: 0 -60px;
+}
+
+.about:hover {
+  height: 65px;
+  width: 120px;
+  background-position: -125px -60px;
+}
+
+.contact:hover {
+  height: 65px;
+  width: 160px;
+  background-position: -250px -60px;
+}
+
+.home:active {
+  height: 65px;
+  width: 120px;
+  background-position: 0 -120px;
+}
+
+.about:active {
+  height: 65px;
+  width: 120px;
+  background-position: -125px -120px;
+}
+
+.contact:active {
+  height: 65px;
+  width: 160px;
+  background-position: -250px -120px;
+}
+
+body {
+  background-color: #cbd2da;
+}
